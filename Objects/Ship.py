@@ -25,8 +25,8 @@ class Ship(RoomObject):
         """
         Respond to keypress up and down
         """
-        movementMethod = "acceleration"
-        if movementMethod == "always":
+        
+        if Globals.MOVEMENT_METHOD == "always":
             """
             Respond to keypress up and down
             """
@@ -35,16 +35,18 @@ class Ship(RoomObject):
                 self.y_speed = -10
             if key[pygame.K_s]:
                 self.y_speed = 10
-        elif movementMethod == "while":
+        elif Globals.MOVEMENT_METHOD == "while":
             """
             Respond to keypress up and down
             """
 
             if key[pygame.K_w]:
-                self.y_speed -= 10
+                self.y_speed = -10
             elif key[pygame.K_s]:
-                self.y_speed += 10
-        elif movementMethod == "acceleration":
+                self.y_speed = 10
+            else:
+                self.y_speed = 0
+        elif Globals.MOVEMENT_METHOD == "acceleration":
             """
             Respond to keypress up and down
             """

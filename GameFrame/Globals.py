@@ -12,6 +12,9 @@ class Globals:
     # - Set the starting number of lives - #
     LIVES = 3
 
+    # - Sets the movement method between always, acceleration, and while - #
+    MOVEMENT_METHOD = "while"
+
     # - Set the Window display name - #
     window_name = 'Space Rescue'
 

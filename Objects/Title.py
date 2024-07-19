@@ -9,7 +9,7 @@ class Title(RoomObject):
         RoomObject.__init__(self, room, x, y)
 
         #set image
-        image = self.load_image("title.png")
+        image = self.load_image("Title.png")
         self.set_image(image,800,350)
 
         #register for key events
