@@ -1,5 +1,6 @@
 from GameFrame import RoomObject
 import pygame
+from colorama import Fore, Style
 
 class Ship(RoomObject):
     """
@@ -24,8 +25,35 @@ class Ship(RoomObject):
         """
         Respond to keypress up and down
         """
+        movementMethod = "acceleration"
+        if movementMethod == "always":
+            """
+            Respond to keypress up and down
+            """
 
-        if key[pygame.K_W]:
-            self.y_speed = -10
-        if key[pygame.K_S]:
-            self.y_speed = 10
+            if key[pygame.K_W]:
+                self.y_speed = -10
+            if key[pygame.K_S]:
+                self.y_speed = 10
+        elif movementMethod == "while":
+            """
+            Respond to keypress up and down
+            """
+
+            if key[pygame.K_W]:
+                self.y_speed -= 10
+            elif key[pygame.K_S]:
+                self.y_speed += 10
+        elif movementMethod == "acceleration":
+            """
+            Respond to keypress up and down
+            """
+
+            if key[pygame.K_W]:
+                self.y_speed -= 5
+            elif key[pygame.K_S]:
+                self.y_speed += 5
+        
+        else:
+            print(Fore.RED + Style.BRIGHT + "Movement method not recognized" + Style.RESET_ALL)
+    
